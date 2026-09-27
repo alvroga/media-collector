@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "media-collector"
+dynamic = ["version"]
+description = "Media Collector: collect a project's media (and proxies) preserving folder structure, then relink"
+readme = "README.md"
+license = "Apache-2.0"
+authors = [{ name = "Alvaro Robles" }]
+requires-python = ">=3.11"
+dependencies = ["pyaaf2>=1.7"]  # AAF reader/writer (pure Python, MIT)
+
+[project.urls]
+Homepage = "https://github.com/alvroga/media-collector"
+Issues = "https://github.com/alvroga/media-collector/issues"
+
+[project.scripts]
+media-collector = "media_collector.cli:main"  # developer harness, not a deliverable
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[tool.hatch.version]
+path = "src/media_collector/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/media_collector"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: uses the 900 MB sample project"]
+
+[tool.ruff]
+line-length = 100
