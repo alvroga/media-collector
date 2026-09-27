@@ -21,5 +21,8 @@ jobs:
         run: .venv/bin/ruff check src tests
       - name: Engine tests
         run: .venv/bin/python -m pytest -q
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
       - name: App tests
         run: cd app && swift test
