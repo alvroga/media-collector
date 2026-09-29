@@ -24,7 +24,12 @@ It is a native macOS app (SwiftUI) over a Python engine. Status: early developme
 
 ## Install
 
-There are no published builds yet. Build the app yourself:
+Download the latest build from [Releases](https://github.com/alvroga/media-collector/releases/latest)
+(`.dmg` or `.zip`, Apple silicon, macOS 14+). It's signed with a Developer ID certificate but not yet
+notarized, so the first launch needs one approval: right-click the app and choose Open, or System
+Settings > Privacy & Security > Open Anyway.
+
+To build it yourself instead:
 
 ```bash
 app/scripts/build_app.sh        # needs Xcode command line tools and uv
